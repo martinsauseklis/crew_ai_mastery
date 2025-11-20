@@ -1,0 +1,196 @@
+# [PROJECT NAME]
+
+## 🎯 Purpose / Why This Exists
+[Describe the main goal — the outcome, not the solution.]
+
+Example:
+Enable small teams to collaborate on projects with clear task ownership,
+reducing meeting overhead and improving delivery predictability.
+
+## 👤 Target Users
+[Who will use this? Roles, demographics, needs.]
+
+Example:
+- Project Managers: Need visibility into team capacity and progress
+- Software Engineers: Need clear task assignments without excessive admin
+- Team Leads: Need to distribute work fairly and track velocity
+
+## 🤲 User Problem
+[Explain what they are struggling with today.]
+
+Example:
+Teams currently juggle multiple tools (Slack, email, spreadsheets) to track work.
+This creates confusion about priorities, duplicated effort, and lost context.
+No single source of truth exists for "what needs to be done and by whom."
+
+## 🏆 Success Metrics / KPIs
+[List specific, measurable goals]
+
+Example:
+- Reduce onboarding friction for new team members (< 10 min to first task)
+- Users can create and assign a task in < 2 minutes
+- Must score ≥95 Lighthouse accessibility
+- Must score ≥90 Lighthouse performance
+- Task completion rate increases by 20% within first month
+- 80%+ user satisfaction score
+
+## 💡 Functional Requirements
+[List all required capabilities as bullet points]
+
+Example:
+- User authentication (email/password and OAuth providers)
+- Create, read, update, delete tasks
+- Assign tasks to team members
+- Set due dates and priority levels
+- Task status workflow (To Do, In Progress, Done)
+- Task comments and activity history
+- File attachments on tasks
+- Search and filter tasks
+- Dashboard with task overview
+- Email notifications for assignments
+- Real-time updates when tasks change
+
+## 💭 Nice-to-Haves (Not Mandatory)
+[List optional enhancements]
+
+Example:
+- Task templates for recurring work
+- Time tracking per task
+- Sprint/milestone grouping
+- Gantt chart visualization
+- Mobile app (PWA)
+- Slack integration
+- Calendar view
+- Bulk task operations
+- Custom fields per workspace
+
+## ⚙ System Constraints
+[Technical or operational constraints]
+
+Default (automatically included):
+- Must use Next.js + Node + Prisma + PostgreSQL
+- Must use secure authentication (NextAuth)
+- Must support local hosting
+
+Additional examples:
+- Must work offline for viewing cached data
+- Must support 1000+ concurrent users
+- Must integrate with existing SSO system
+- Data must be stored in EU region only
+- Must be deployable to AWS
+- Maximum page load time: 2 seconds
+
+## 🔐 Security Requirements
+[Security specifications]
+
+Example:
+- Hashed passwords (bcrypt or better)
+- Role-based access control (RBAC)
+- MFA support (TOTP)
+- Session timeout after 30 minutes inactivity
+- Audit log for sensitive actions
+- Rate limiting on API endpoints
+- Input sanitization and XSS prevention
+- CSRF protection
+- Secure password reset flow
+- Data encryption at rest
+
+## 🧪 Testing & Quality Requirements
+[Testing and quality standards]
+
+Default (automatically included):
+- 100% critical-path coverage
+- E2E tests via Playwright
+- Must meet WCAG 2.1 AA
+- Test coverage >80%
+
+Additional examples:
+- Load testing for 100 concurrent users
+- Browser compatibility (Chrome, Firefox, Safari, Edge)
+- Mobile responsiveness testing
+- API performance tests (<200ms response time)
+- Security penetration testing checklist
+
+## 📦 Output Expectations
+[What the crew should deliver]
+
+The crew should deliver:
+- Complete project structure following Next.js best practices
+- Full code implementation with TypeScript
+- Comprehensive documentation (README, API docs, setup guides)
+- Test coverage (unit, integration, E2E)
+- Quality reports (accessibility, performance, security)
+- Deployment configuration (Docker, CI/CD)
+- Report on architectural decisions and tradeoffs
+
+## ❓ Open Questions (Crew Should Resolve)
+[List anything unclear or unknown]
+
+Example:
+- Should we support multiple workspaces per user?
+- What's the expected data retention policy?
+- Should task history be immutable or editable?
+- What's the maximum number of team members per project?
+- Should we support guest users (view-only access)?
+- What's the preferred OAuth provider (Google, GitHub, Microsoft)?
+- Should notifications be real-time (WebSocket) or polling?
+
+## 🛠️ Technical Stack (Pre-defined)
+- Frontend: Next.js 14+ (App Router, React Server Components)
+- Backend: Node.js (API Routes, Server Actions)
+- Database: PostgreSQL
+- ORM: Prisma
+- Authentication: NextAuth.js
+- Testing: Jest + Playwright
+- Styling: Tailwind CSS
+- Containerization: Docker + Docker Compose
+- CI/CD: GitHub Actions
+
+---
+
+## 📝 Notes for Filling Out This Template
+
+### Purpose Section
+Focus on the "why" and the outcome. Avoid jumping to solutions.
+- ❌ Bad: "Build a task manager with React"
+- ✅ Good: "Enable teams to track work without tool overload"
+
+### Target Users Section
+Be specific about who and their needs.
+- ❌ Bad: "Anyone who needs to manage tasks"
+- ✅ Good: "Remote software teams of 5-15 people who need asynchronous coordination"
+
+### Success Metrics Section
+Make metrics specific and measurable.
+- ❌ Bad: "Fast and easy to use"
+- ✅ Good: "Task creation in <2 minutes, Lighthouse score >90"
+
+### Functional Requirements Section
+List specific capabilities, not implementation details.
+- ❌ Bad: "Use Redux for state management"
+- ✅ Good: "Real-time task updates visible to all team members"
+
+### Open Questions Section
+List genuine uncertainties that the crew should make decisions about.
+- ❌ Bad: "Should we use TypeScript?" (already decided in tech stack)
+- ✅ Good: "Should task history be immutable or allow editing past entries?"
+
+---
+
+## 🚀 Using This Template
+
+### Option 1: Fill out this file directly
+1. Replace all [bracketed] sections with your content
+2. Remove the example sections
+3. Save the file
+4. Run: `python main.py project_brief_template.txt`
+
+### Option 2: Use interactive mode
+1. Run: `python main.py`
+2. Follow the prompts to fill in each section
+3. Your brief will be saved automatically
+
+### Option 3: Create a new file
+1. Copy this template to a new file (e.g., `my_project.txt`)
+2. Fill in your requirements
+3. Run: `python main.py my_project.txt`

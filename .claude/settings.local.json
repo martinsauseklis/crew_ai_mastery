@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(=1.7.0)",
+      "Bash(pip show:*)",
+      "Bash(pip uninstall:*)",
+      "Bash(python:*)",
+      "Bash(timeout 5 python:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

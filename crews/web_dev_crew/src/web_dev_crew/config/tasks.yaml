@@ -1,0 +1,32 @@
+research_task:
+  description: >
+    Conduct a research for {purpose} of the {project_name}
+  expected_output: >
+    100 facts for the {content} stored in output/web_dev_crew/facts.md
+  agent: web_developer
+
+data_source_population:
+  description: >
+    Make the output/web_dev_crew/facts.md file into {data_source} under output/web_dev_crew
+  expected_output: >
+    Full fledged structured json file that will be used as datasource for the app using {stack}.
+    Must contain all the facts from facts.md.
+    Must be a valid JSON.
+  agent: web_developer
+
+coding_task:
+  description: >
+    Create {project_name}, based on {purpose}, {content} with {stack}. Use {data_source} from output/web_dev_crew for the {content}
+  expected_output: >
+    Full fledged app that can be run locally. Stored under output/web_dev_crew/app
+  agent: web_developer
+
+debugging_task:
+  description: >
+    Set up the project and run it.
+    If encounter errors, make a list of them and pass to web_developer to fix them
+  expected_output: >
+    Store terminal errors in a file with datetime under output/web_dev_crew/runs
+    Give latest file to web_developer
+    Run the setup until no more errors appear in terminal
+  agent: web_developer

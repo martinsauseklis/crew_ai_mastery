@@ -1,0 +1,332 @@
+orchestration_kickoff:
+  description: >
+    Review the primary mission prompt and prepare all competing teams for the planning challenge.
+    Explain the competition structure, evaluation criteria, and the three-round improvement process.
+    Set clear expectations for plan quality and deliverables.
+  expected_output: >
+    A clear briefing document that all teams understand, including competition rules and evaluation dimensions.
+  agent: master_orchestrator
+
+round_1_strategic_systems_plan:
+  description: >
+    Based on the PRIMARY MISSION PROMPT, create a comprehensive plan focusing on systems thinking, frameworks, and mental models.
+    Your plan should address how to build systematic approaches for identifying AI opportunities and developing reusable architectures.
+    Format: Structured markdown with clear sections, priorities, and actionable steps.
+  expected_output: >
+    A detailed strategic plan (minimum 800 words) with specific frameworks, mental models, and systematic approaches.
+  agent: strategic_systems_team
+  context:
+    - orchestration_kickoff
+
+round_1_technical_execution_plan:
+  description: >
+    Based on the PRIMARY MISSION PROMPT, create a comprehensive plan focusing on technical skill development, prototyping strategies, and platform mastery.
+    Your plan should include specific tools, frameworks, and a roadmap for building working solutions rapidly.
+    Format: Structured markdown with clear sections, priorities, and actionable steps.
+  expected_output: >
+    A detailed technical execution plan (minimum 800 words) with specific tools, learning paths, and prototyping workflows.
+  agent: technical_execution_team
+  context:
+    - orchestration_kickoff
+
+round_1_impact_acceleration_plan:
+  description: >
+    Based on the PRIMARY MISSION PROMPT, create a comprehensive plan for identifying high-value internal projects and demonstrating measurable business impact.
+    Your plan should show how to leverage organizational challenges as learning opportunities while building credibility.
+    Format: Structured markdown with clear sections, priorities, and actionable steps.
+  expected_output: >
+    A detailed impact acceleration plan (minimum 800 words) with specific project identification criteria, value measurement approaches, and communication strategies.
+  agent: impact_acceleration_team
+  context:
+    - orchestration_kickoff
+
+round_1_reputation_network_plan:
+  description: >
+    Based on the PRIMARY MISSION PROMPT, create a comprehensive plan for building visible reputation through documentation, sharing, and ecosystem engagement.
+    Your plan should address content creation, community participation, and building proof-based credibility.
+    Format: Structured markdown with clear sections, priorities, and actionable steps.
+  expected_output: >
+    A detailed reputation building plan (minimum 800 words) with specific content strategies, engagement channels, and visibility tactics.
+  agent: reputation_network_team
+  context:
+    - orchestration_kickoff
+
+round_1_habits_discipline_plan:
+  description: >
+    Based on the PRIMARY MISSION PROMPT, create a comprehensive plan for building sustainable execution habits and discipline systems.
+    Your plan should address daily routines, accountability mechanisms, and long-term momentum building.
+    Format: Structured markdown with clear sections, priorities, and actionable steps.
+  expected_output: >
+    A detailed habits and discipline plan (minimum 800 words) with specific routines, systems, and sustainability mechanisms.
+  agent: habits_discipline_team
+  context:
+    - orchestration_kickoff
+
+round_1_evaluation:
+  description: >
+    Evaluate all five Round 1 plans against these criteria:
+    1. Alignment with PRIMARY MISSION PROMPT (0-20 points)
+    2. Comprehensiveness and depth (0-20 points)
+    3. Practicality and actionability (0-20 points)
+    4. Innovation and insight quality (0-20 points)
+    5. Clarity and structure (0-20 points)
+
+    For each plan, provide:
+    - Scores for each criterion with justification
+    - Total score (0-100)
+    - 3-5 specific strengths
+    - 3-5 specific areas for improvement
+    - Actionable recommendations for Round 2
+
+    Rank all plans from strongest to weakest.
+  expected_output: >
+    A comprehensive evaluation report with scores, rankings, detailed feedback for each plan, and specific improvement guidance.
+  agent: judge_agent
+  context:
+    - round_1_strategic_systems_plan
+    - round_1_technical_execution_plan
+    - round_1_impact_acceleration_plan
+    - round_1_reputation_network_plan
+    - round_1_habits_discipline_plan
+
+round_2_coaching_session:
+  description: >
+    Review the judge's Round 1 evaluation and provide targeted coaching to help each team understand how to improve their plans.
+    For each team, translate the feedback into concrete revision strategies without doing the work for them.
+    Ask probing questions that help teams see gaps and opportunities they may have missed.
+  expected_output: >
+    Individual coaching guidance for each team with specific questions, prompts, and revision strategies.
+  agent: revision_coach
+  context:
+    - round_1_evaluation
+
+round_2_strategic_systems_plan:
+  description: >
+    Revise your Round 1 plan based on judge feedback and coaching guidance.
+    Address identified weaknesses while preserving your strengths.
+    Incorporate deeper insights and more actionable detail where needed.
+  expected_output: >
+    An improved strategic plan (minimum 1000 words) that addresses all judge feedback and demonstrates clear advancement over Round 1.
+  agent: strategic_systems_team
+  context:
+    - round_1_strategic_systems_plan
+    - round_1_evaluation
+    - round_2_coaching_session
+
+round_2_technical_execution_plan:
+  description: >
+    Revise your Round 1 plan based on judge feedback and coaching guidance.
+    Address identified weaknesses while preserving your strengths.
+    Incorporate deeper insights and more actionable detail where needed.
+  expected_output: >
+    An improved technical execution plan (minimum 1000 words) that addresses all judge feedback and demonstrates clear advancement over Round 1.
+  agent: technical_execution_team
+  context:
+    - round_1_technical_execution_plan
+    - round_1_evaluation
+    - round_2_coaching_session
+
+round_2_impact_acceleration_plan:
+  description: >
+    Revise your Round 1 plan based on judge feedback and coaching guidance.
+    Address identified weaknesses while preserving your strengths.
+    Incorporate deeper insights and more actionable detail where needed.
+  expected_output: >
+    An improved impact acceleration plan (minimum 1000 words) that addresses all judge feedback and demonstrates clear advancement over Round 1.
+  agent: impact_acceleration_team
+  context:
+    - round_1_impact_acceleration_plan
+    - round_1_evaluation
+    - round_2_coaching_session
+
+round_2_reputation_network_plan:
+  description: >
+    Revise your Round 1 plan based on judge feedback and coaching guidance.
+    Address identified weaknesses while preserving your strengths.
+    Incorporate deeper insights and more actionable detail where needed.
+  expected_output: >
+    An improved reputation building plan (minimum 1000 words) that addresses all judge feedback and demonstrates clear advancement over Round 1.
+  agent: reputation_network_team
+  context:
+    - round_1_reputation_network_plan
+    - round_1_evaluation
+    - round_2_coaching_session
+
+round_2_habits_discipline_plan:
+  description: >
+    Revise your Round 1 plan based on judge feedback and coaching guidance.
+    Address identified weaknesses while preserving your strengths.
+    Incorporate deeper insights and more actionable detail where needed.
+  expected_output: >
+    An improved habits and discipline plan (minimum 1000 words) that addresses all judge feedback and demonstrates clear advancement over Round 1.
+  agent: habits_discipline_team
+  context:
+    - round_1_habits_discipline_plan
+    - round_1_evaluation
+    - round_2_coaching_session
+
+round_2_evaluation:
+  description: >
+    Evaluate all five Round 2 plans using the same criteria as Round 1:
+    1. Alignment with PRIMARY MISSION PROMPT (0-20 points)
+    2. Comprehensiveness and depth (0-20 points)
+    3. Practicality and actionability (0-20 points)
+    4. Innovation and insight quality (0-20 points)
+    5. Clarity and structure (0-20 points)
+
+    For each plan, provide:
+    - Scores for each criterion with justification
+    - Total score (0-100)
+    - Comparison to Round 1 scores
+    - 3-5 specific strengths
+    - 3-5 specific areas for improvement
+    - Actionable recommendations for Round 3
+
+    Rank all plans from strongest to weakest.
+  expected_output: >
+    A comprehensive evaluation report showing progress from Round 1, with scores, rankings, detailed feedback for each plan, and specific improvement guidance for the final round.
+  agent: judge_agent
+  context:
+    - round_2_strategic_systems_plan
+    - round_2_technical_execution_plan
+    - round_2_impact_acceleration_plan
+    - round_2_reputation_network_plan
+    - round_2_habits_discipline_plan
+    - round_1_evaluation
+
+round_3_coaching_session:
+  description: >
+    Review the judge's Round 2 evaluation and provide final coaching to help each team create their strongest possible submission.
+    For each team, provide razor-sharp guidance on final refinements.
+    Push teams toward excellence in their final iteration.
+  expected_output: >
+    Final coaching guidance for each team with specific refinement strategies and excellence standards.
+  agent: revision_coach
+  context:
+    - round_2_evaluation
+
+round_3_strategic_systems_plan:
+  description: >
+    Create your final, most refined plan based on all previous feedback.
+    This is your opportunity to deliver your absolute best work.
+    Address all remaining weaknesses and maximize impact, clarity, and actionability.
+  expected_output: >
+    A polished, comprehensive strategic plan (minimum 1200 words) representing your highest-quality work.
+  agent: strategic_systems_team
+  context:
+    - round_2_strategic_systems_plan
+    - round_2_evaluation
+    - round_3_coaching_session
+
+round_3_technical_execution_plan:
+  description: >
+    Create your final, most refined plan based on all previous feedback.
+    This is your opportunity to deliver your absolute best work.
+    Address all remaining weaknesses and maximize impact, clarity, and actionability.
+  expected_output: >
+    A polished, comprehensive technical execution plan (minimum 1200 words) representing your highest-quality work.
+  agent: technical_execution_team
+  context:
+    - round_2_technical_execution_plan
+    - round_2_evaluation
+    - round_3_coaching_session
+
+round_3_impact_acceleration_plan:
+  description: >
+    Create your final, most refined plan based on all previous feedback.
+    This is your opportunity to deliver your absolute best work.
+    Address all remaining weaknesses and maximize impact, clarity, and actionability.
+  expected_output: >
+    A polished, comprehensive impact acceleration plan (minimum 1200 words) representing your highest-quality work.
+  agent: impact_acceleration_team
+  context:
+    - round_2_impact_acceleration_plan
+    - round_2_evaluation
+    - round_3_coaching_session
+
+round_3_reputation_network_plan:
+  description: >
+    Create your final, most refined plan based on all previous feedback.
+    This is your opportunity to deliver your absolute best work.
+    Address all remaining weaknesses and maximize impact, clarity, and actionability.
+  expected_output: >
+    A polished, comprehensive reputation building plan (minimum 1200 words) representing your highest-quality work.
+  agent: reputation_network_team
+  context:
+    - round_2_reputation_network_plan
+    - round_2_evaluation
+    - round_3_coaching_session
+
+round_3_habits_discipline_plan:
+  description: >
+    Create your final, most refined plan based on all previous feedback.
+    This is your opportunity to deliver your absolute best work.
+    Address all remaining weaknesses and maximize impact, clarity, and actionability.
+  expected_output: >
+    A polished, comprehensive habits and discipline plan (minimum 1200 words) representing your highest-quality work.
+  agent: habits_discipline_team
+  context:
+    - round_2_habits_discipline_plan
+    - round_2_evaluation
+    - round_3_coaching_session
+
+final_evaluation:
+  description: >
+    Conduct the final evaluation of all five Round 3 plans using the same criteria:
+    1. Alignment with PRIMARY MISSION PROMPT (0-20 points)
+    2. Comprehensiveness and depth (0-20 points)
+    3. Practicality and actionability (0-20 points)
+    4. Innovation and insight quality (0-20 points)
+    5. Clarity and structure (0-20 points)
+
+    For each plan, provide:
+    - Final scores for each criterion with justification
+    - Total score (0-100)
+    - Evolution summary comparing Rounds 1, 2, and 3
+    - Final strengths assessment
+    - Any remaining improvement opportunities
+
+    Provide the final ranking from strongest to weakest.
+    Include an executive summary of the overall competition and quality of submissions.
+  expected_output: >
+    A comprehensive final evaluation report with complete scoring history, evolution analysis, final rankings, and executive summary of the competition results.
+  agent: judge_agent
+  context:
+    - round_3_strategic_systems_plan
+    - round_3_technical_execution_plan
+    - round_3_impact_acceleration_plan
+    - round_3_reputation_network_plan
+    - round_3_habits_discipline_plan
+    - round_1_evaluation
+    - round_2_evaluation
+
+master_synthesis:
+  description: >
+    Create a unified master plan that integrates the best elements from all five competing teams' final submissions.
+
+    Your synthesis should:
+    1. Identify the strongest insights, frameworks, and strategies from each plan
+    2. Resolve any contradictions or overlaps between approaches
+    3. Create a coherent narrative that weaves together complementary elements
+    4. Organize the integrated plan into clear phases or pillars
+    5. Ensure the final output is comprehensive, actionable, and more powerful than any single submission
+
+    The master plan should be structured with:
+    - Executive summary
+    - Core strategic pillars (integrated from all teams)
+    - Detailed action plans for each pillar
+    - Implementation timeline and priorities
+    - Success metrics and milestones
+    - Long-term vision and evolution path
+
+    This is the definitive output that will guide the mission forward.
+  expected_output: >
+    A comprehensive, integrated master plan (minimum 3000 words) that represents the best strategic thinking from all competing teams, synthesized into a single cohesive and actionable strategy.
+  agent: final_synthesizer
+  context:
+    - round_3_strategic_systems_plan
+    - round_3_technical_execution_plan
+    - round_3_impact_acceleration_plan
+    - round_3_reputation_network_plan
+    - round_3_habits_discipline_plan
+    - final_evaluation
